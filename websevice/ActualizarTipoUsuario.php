@@ -1,0 +1,54 @@
+<?php
+
+//Script PHP para actualizar un tipo de usuario en la base de datos
+//Recibe id del tipo usuario, Nombre del nombre del tipo usuario
+//Imprime en Formato Json
+//  Estatus 0: Operacion Incorrecta 1: Operacion Correcta
+//  Mensaje : Justifica el Estatus
+
+
+$mensaje = array();
+//Se inicializa Bandera de Error
+$error = TRUE;
+//Comprueba si el Script es llamado por un Metodo POST
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//Se incluye la Clase para Validar Datos
+    require_once "../utilidades/Validaciones.php";
+//Se comprueba si las Variables estan definidas, caso contrario se asigna NULL
+    $nombre = isset($_POST["nombre"]) ? Validar::filtrar_texto($_POST["nombre"]) : NULL;
+    $idtipousuario = isset($_POST["idtipousuario"]) ? Validar::filtrar_texto($_POST["idtipousuario"]) : NULL;
+
+    if (!is_null($nombre) && !is_null($idtipousuario)) {
+        if (Validar::es_numero($idtipousuario, true) && !Validar::esta_vacio($nombre)) {
+//Clase con los metodos Genericos para el CRUB
+            require_once '../modelo/Crud.php';
+//Se instancia un objeto de tipo CRUB
+            $modelo = new Crud();
+//Se inicializan los atributos para el Update           
+            //Tabla a la que se le van a actualizar los datos
+            $modelo->setUpdate("tipousuario");
+            //Columnas a la que se le Actualizaran los datos
+            $modelo->setSet("nombre = '$nombre'");
+            //Condicion para el Update
+            $modelo->setCondition("idtipousuario = $idtipousuario");
+
+            if ($modelo->Update()) {
+                $error = FALSE;
+            }
+        }
+    }
+}
+
+
+//Si existe un error el estatus es 0
+if ($error) {
+    $mensaje["estatus"] = 0;
+    $mensaje["mensaje"] = "Ocurrio un error al Actualizar el Usuario";
+} else {
+//Caso contrario es 1    
+    $mensaje["estatus"] = 1;
+    $mensaje["mensaje"] = "Usuario Actualizado con Exito";
+}
+//Se usa la funcion json_encode para obtener el formato json del array
+echo json_encode($mensaje);
+
