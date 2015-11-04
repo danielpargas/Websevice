@@ -22,6 +22,14 @@ $error = TRUE;
     $titulo = isset($_POST["titulo"]) ? $_POST["titulo"] : NULL;
     $descripcion = isset($_POST["descripcion"]) ? $_POST["descripcion"] : NULL;
     $resumen = isset($_POST["resumen"]) ? $_POST["resumen"] : NULL;
+    
+    
+    $idtiponoticia;
+    $resumen = substr($descripcion, 0, 100); 
+    $fecha = date("Y-n-j");
+    $hora = date("g:i:s");
+    
+    
 //    $idgasto = isset($_POST["idgasto"]) ? 
 //    $idanimal= isset($_POST["idanimal"]) ? Validar::filtrar_texto($_POST["idanimal"]) : NULL;
 //    $fecha = isset($_POST["fecha"]) ? Validar::filtrar_texto($_POST["fecha"]) : NULL;
@@ -57,3 +65,13 @@ if ($error) {
 }
 //Se usa la funcion json_encode para obtener el formato json del array
 echo json_encode($mensaje);
+
+	function base64_a_imagen($base64_string)/*Se obtiene el string y lo converte a imegen como un archivo*/
+	{	
+		$ifp = fopen($image, "wb");
+		$data = explode(',', $base64_string);
+		fwrite($ifp, base64_decode($data[1]));
+		fclose($ifp);
+		return $output_file; 
+	}
+	

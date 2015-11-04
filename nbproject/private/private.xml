@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/opt/lampp/htdocs/Asoguau2/modelo/Conexion.php</file>
-            <file>file:/opt/lampp/htdocs/Asoguau2/utilidades/Validaciones.php</file>
-            <file>file:/opt/lampp/htdocs/Asoguau2/websevice/ObtenerTodasNoticias.php</file>
-            <file>file:/opt/lampp/htdocs/Asoguau2/websevice/InsertarUsuario.php</file>
+            <file>file:/opt/lampp/htdocs/Asoguau2/websevice/InsertarNoticia.php</file>
+            <file>file:/opt/lampp/htdocs/Asoguau2/utilidades/prueba.php</file>
+            <file>file:/opt/lampp/htdocs/Asoguau2/websevice/ActualizarPerfilUsuario.php</file>
             <file>file:/opt/lampp/htdocs/Asoguau2/websevice/ObtenerNoticia.php</file>
-            <file>file:/opt/lampp/htdocs/Asoguau2/modelo/Crud.php</file>
         </group>
     </open-files>
 </project-private>

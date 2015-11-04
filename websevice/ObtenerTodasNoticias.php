@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($reciente) {
         $condicion = $modelo->getCondition();        
-        $modelo->setCondition($condicion." ORDER BY fecha DESC LIMIT 1");        
+        $modelo->setCondition($condicion." ORDER BY fecha DESC LIMIT 5");        
     }
 }
 
