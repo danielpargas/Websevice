@@ -5,7 +5,12 @@
         <group>
             <file>file:/opt/lampp/htdocs/Asoguau2/websevice/InsertarNoticia.php</file>
             <file>file:/opt/lampp/htdocs/Asoguau2/utilidades/prueba.php</file>
+            <file>file:/opt/lampp/htdocs/Asoguau2/modelo/Conexion.php</file>
+            <file>file:/opt/lampp/htdocs/Asoguau2/websevice/ProcesarLogin.php</file>
             <file>file:/opt/lampp/htdocs/Asoguau2/websevice/ActualizarPerfilUsuario.php</file>
+            <file>file:/opt/lampp/htdocs/Asoguau2/websevice/ObtenerTodasDonacion.php</file>
+            <file>file:/opt/lampp/htdocs/Asoguau2/websevice/ObtenerTodasNoticias.php</file>
+            <file>file:/opt/lampp/htdocs/Asoguau2/websevice/ObtenerTodosAnimales.php</file>
             <file>file:/opt/lampp/htdocs/Asoguau2/websevice/ObtenerNoticia.php</file>
         </group>
     </open-files>
