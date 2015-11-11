@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idtiponoticia = (isset($_POST["idtiponoticia"])) ? $_POST["idtiponoticia"] : NULL;
     $idusuario = (isset($_POST["idusuario"])) ? $_POST["idusuario"] : NULL;
     $reciente = isset($_POST["recientes"]);            
+    $busqueda = isset($_POST["busqueda"]) ? $_POST["busqueda"] : NULL;            
 
     if (!is_null($idtiponoticia) && !is_null($idusuario)) {
         $modelo->setCondition("idtiponoticia = $idtiponoticia and idusuario = $idusuario");
@@ -44,6 +45,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($reciente) {
         $condicion = $modelo->getCondition();        
         $modelo->setCondition($condicion." ORDER BY fecha DESC LIMIT 5");        
+    }
+    
+    
+    if(!is_null($busqueda)){
+        $condicion = $modelo->getCondition();
+        if(!empty($condicion)){
+        $modelo->setCondition($condicion." and titulo LIKE '%$busqueda%'");        
+        }  else {
+            $modelo->setCondition("titulo LIKE '%$busqueda%'");        
+        }
     }
 }
 

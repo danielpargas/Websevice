@@ -23,8 +23,7 @@ $nombre = isset($_POST["nombre"]) ? Validar::filtrar_texto($_POST["nombre"]) : N
 $apellido = isset($_POST["apellido"]) ? Validar::filtrar_texto($_POST["apellido"]) : NULL;
 $correo = isset($_POST["correo"]) ? Validar::validar_correo($_POST["correo"]) : NULL;
 $telefono = isset($_POST["telefono"]) ? Validar::filtrar_texto($_POST["telefono"]) : NULL;
-$clave = isset($_POST["clave"]) ? Validar::filtrar_texto($_POST["clave"]) : NULL;
-
+$clave = isset($_POST["clave"]) ? md5(Validar::filtrar_texto($_POST["clave"])) : NULL;
 
 if (!is_null($nombre) && !is_null($apellido) && !is_null($correo) && !is_null($telefono) && !is_null($clave) && !is_null($idtipousuario) && !is_null($idstatususuario)) {
     if (!Validar::esta_vacio($nombre) && !Validar::esta_vacio($apellido) && !Validar::esta_vacio($telefono) && !Validar::esta_vacio($clave) && Validar::es_numero($idstatususuario, true) && Validar::es_numero($idtipousuario, true)) {

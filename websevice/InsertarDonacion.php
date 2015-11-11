@@ -17,9 +17,14 @@ $error = TRUE;
     require_once "../utilidades/Validaciones.php";
 //Se comprueba si las Variables estan definidas, caso contrario se asigna NULL
     $idusuario = isset($_POST["idusuario"]) ? Validar::filtrar_texto($_POST["idusuario"]) : NULL;
-    $idestatusdonacion = isset($_POST["idestatusdonacion"]) ? Validar::filtrar_texto($_POST["idestatusdonacion"]) : NULL;
-    $fecha = isset($_POST["fecha"]) ? Validar::filtrar_texto($_POST["fecha"]) : NULL;    
-    $referencia = isset($_POST["referencia"]) ? Validar::filtrar_texto($_POST["referencia"]) : NULL;
+    //$idestatusdonacion = isset($_POST["idestatusdonacion"]) ? Validar::filtrar_texto($_POST["idestatusdonacion"]) : NULL;
+    $idestatusdonacion = 3;
+
+    //$fecha = isset($_POST["fecha"]) ? Validar::filtrar_texto($_POST["fecha"]) : NULL;    
+    $fecha = date("Y-n-j");
+    //$referencia = isset($_POST["referencia"]) ? Validar::filtrar_texto($_POST["referencia"]) : NULL;
+    $referencia = 4242233;
+
     $monto = isset($_POST["monto"]) ? Validar::filtrar_texto($_POST["monto"]) : NULL;
 
     if (!is_null($idusuario) && !is_null($idestatusdonacion) && !is_null($fecha) && !is_null($referencia) && !is_null($monto)) {
@@ -34,7 +39,7 @@ $error = TRUE;
             //Tabla a la que se le van a insertar los datos
             $modelo->setInserInto("donacion");
             //Columna a la que se le insertaran los datos
-            $modelo->setInsertColumns("idusuario,fecha,idestatusdonacion,referencia,monto");
+            $modelo->setInsertColumns("idusuario,fecha,idstatusdonacion,nreferencia,monto");
             //Valores que se le insertaran a la colummna
             $modelo->setInsertValues("'$idusuario','$fecha','$idestatusdonacion','$referencia','$monto'");
 

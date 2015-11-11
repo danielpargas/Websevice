@@ -26,7 +26,7 @@ $error = TRUE;
 //Se comprueba si las Variables estan definidas, caso contrario se asigna NULL
     
     $correo = isset($_POST["correo"]) ? Validar::validar_correo($_POST["correo"]) : NULL;
-    $clave = isset($_POST["clave"]) ? Validar::filtrar_texto($_POST["clave"]) : NULL;  
+    $clave = isset($_POST["clave"]) ? md5(Validar::filtrar_texto($_POST["clave"])) : NULL;  
     
     if ( !is_null($correo) && !is_null($clave) &&
         !empty($correo) && !empty($clave)) {

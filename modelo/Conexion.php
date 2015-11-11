@@ -7,7 +7,8 @@
 class Conexion {
 
     //Usuario de la Base de Datos
-    protected $usuario = "dulcirech";
+    //protected $usuario = "dulcirech";
+    protected $usuario = "root";    
     //Clave del Usuario
     protected $clave = "dcr211091";
     //Host asociado a la Base de Datos
